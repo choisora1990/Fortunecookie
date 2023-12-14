@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>오늘의 운세</title>
+    <style>
+         body {
+            background-color: yellow; /* 전체 페이지의 배경색을 노란색으로 설정 */
+        }
+        .center {
+            text-align: center;
+            margin: auto;
+            width: 50%;
+        }
+
+        #fortune {
+            display: none;
+            color: black;
+            font-size: 20px;
+            margin-top: 20px;
+        }
+
+        #resetButton {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="center">
+        <h1>포춘쿠키를 눌러주세요</h1>
+        <img id="fortuneImage" src="포춘1.jpg" alt="운세 이미지" style="cursor: pointer;">
+        <div id="fortune"></div>
+        <button id="resetButton" style="display:none;">다시하기</button>
+    </div>
+
+    <script>
+        var fortunes = [
+        "오늘 식사가 아주 맛있겠군요.",
+        "오늘 반가운 사람을 만나게 됩니다.",
+        "조금만 더 노력하면 원하는 것을 얻을 수 있습니다.",
+        "오늘은 재물운이 가득한 날입니다.",
+        "소중한 것의 가치를 깨닫게 되는 날입니다.",
+        "오늘 재미있는 이야기를 듣게 될 겁니다.",
+        "오늘은 마음을 넓게 가져 보는 건 어떨까요."
+        ];
+
+        var image = document.getElementById('fortuneImage');
+        var fortuneText = document.getElementById('fortune');
+        var resetButton = document.getElementById('resetButton');
+        var isFortuneShown = false; // 운세가 표시되었는지 여부를 추적하는 변수
+
+        image.onclick = function() {
+            if (!isFortuneShown) {
+                var randomIndex = Math.floor(Math.random() * fortunes.length);
+                fortuneText.innerText = fortunes[randomIndex];
+                fortuneText.style.display = 'block';
+                resetButton.style.display = 'block';
+                isFortuneShown = true; // 운세가 표시되었음을 나타냄
+            }
+        };
+
+        resetButton.onclick = function() {
+            fortuneText.style.display = 'none';
+            resetButton.style.display = 'none';
+            isFortuneShown = false; // 운세가 숨겨졌음을 나타냄
+        };
+    </script>
+</body>
+</html>
