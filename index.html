@@ -5,30 +5,35 @@
     <title>오늘의 운세</title>
     <style>
         body {
-            background-color: yellow; /* 전체 페이지의 배경색을 검은색으로 설정 */
+            background-color: yellow; /* 전체 페이지의 배경색을 노란색으로 설정 */
         }
         .center {
             text-align: center;
             margin: auto;
             width: 50%;
         }
+
         #fortune {
             display: none;
             color: black;
             font-size: 20px;
             margin-top: 20px;
         }
+
         #resetButton {
             margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <div class="center">
+<div class="center">
         <h1>포춘쿠키를 눌러주세요</h1>
-            <img id="fortuneImage" src="포춘1.jpg" alt="운세 이미지" style="cursor: pointer;">
-        <div id="fortune"></div>
-   
+<div class="center">
+    <img id="fortuneImage" src="포춘1.jpg" alt="운세 이미지" style="cursor: pointer;">
+    <div id="fortune"></div>
+    <button id="resetButton" style="display:none;">다시하기</button>
+</div>
+
 <script>
     var fortunes = [
         "오늘 식사가 아주 맛있겠군요.",
@@ -38,7 +43,6 @@
         "소중한 것의 가치를 깨닫게 되는 날입니다."
         "오늘 재미있는 이야기를 듣게 될 겁니다."
         "오늘은 마음을 넓게 가져 보는 건 어떨까요."
-    
     ];
 
     var image = document.getElementById('fortuneImage');
