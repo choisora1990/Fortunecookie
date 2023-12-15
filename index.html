@@ -340,6 +340,20 @@
         canvas.addEventListener('touchmove', handleMouseMove);
         document.getElementById('refreshButton').addEventListener('click', clearCanvas);
 
+    function handleTouchMove(e) {
+        e.preventDefault(); // 스크롤 방지
+        if (!painting) return;
+
+        const rect = canvas.getBoundingClientRect();
+        const x = e.touches[0].clientX - rect.left;
+        const y = e.touches[0].clientY - rect.top;
+
+        ctx.lineTo(x, y);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+    }
+    canvas.addEventListener('touchmove', handleTouchMove, { passive: false });
     </script>
 </body>
 </html>
