@@ -82,6 +82,18 @@
             transform: translateX(-50%); 
             width: 10%; 
         }
+        .card {
+        border: 1px solid #ddd;
+        max-width: 100%; 
+        margin: auto; 
+        width: 50%;
+        padding: 10px;
+        text-align: center;
+        cursor: pointer;
+        }
+        .hidden {
+        display: none;
+        }
         @media screen and (max-width: 768px) {
             .center {
                 width: 100%; 
@@ -101,6 +113,7 @@
                 margin-top: 15px;
             }
         }
+        
     </style>
 </head>
 <body>
@@ -133,6 +146,16 @@
         <img id="fortuneImage" src="포춘1.jpg" alt="운세 이미지" style="cursor: pointer;">
         <div id="fortune"></div>
         <button id="resetButton" style="display:none;">다시하기</button>
+        <h1>심리테스트</h1>
+        <h3>좋아하는 동물을 선택해보세요.</h3>
+            <div id="A" class="card">강아지</div>
+        <div id="interpretationA" class="hidden">당신은 강아지를 좋아하는 사람입니다.</div>
+        <div id="B" class="card">고양이</div>
+        <div id="interpretationB" class="hidden">당신은 강아지를 좋아하는 사람입니다.</div>
+        <div id="C" class="card">사자</div>
+        <div id="interpretationC" class="hidden">당신은 강아지를 좋아하는 사람입니다.</div>
+        <div id="D" class="card">개구리</div>
+        <div id="interpretationD" class="hidden">당신은 강아지를 좋아하는 사람입니다.</div>
     </div>
     <script>
         var fortunes = [
@@ -200,6 +223,16 @@
             floatingWindow.style.display = 'none';
         });
 
+
+        function toggleInterpretation(choice) {
+            var interpretationId = "interpretation" + choice;
+            var interpretationElement = document.getElementById(interpretationId);
+            interpretationElement.classList.toggle('hidden');
+        }
+        document.getElementById("A").onclick = function() { toggleInterpretation("A"); };
+        document.getElementById("B").onclick = function() { toggleInterpretation("B"); };
+        document.getElementById("C").onclick = function() { toggleInterpretation("C"); };
+        document.getElementById("D").onclick = function() { toggleInterpretation("D"); };
     </script>
 </body>
 </html>
