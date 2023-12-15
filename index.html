@@ -60,7 +60,6 @@
         color: black;
         text-align: center;
         background-color: white;
-        padding: 10px;
         }
         @keyframes textExpand {
             from {
@@ -98,17 +97,30 @@
             backface-visibility: hidden;
             width: 100%;
             height: 100%;
+            padding: 10px;
         }
         .card-front {
-            /* styling for the front of the card */
         }
-
         .card-back {
-            /* styling for the back of the card */
             transform: rotateY(180deg);
         }
         .card.flipped {
             transform: rotateY(180deg);
+        }
+        .canvas-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        #canvas {
+            border: 1px solid black;
+            cursor: pointer;
+        }
+        .button-container {
+            text-align: center; 
+            margin-top: 10px;
         }
         @media screen and (max-width: 768px) {
             .center {
@@ -118,7 +130,11 @@
             #resetButton {
                 width: 30%;
             }
-        }        
+        }    
+        .divider {
+            border-bottom: 10px solid #383535;
+            margin: 20px 0; 
+        }    
     </style>
 </head>
 <body>
@@ -148,12 +164,13 @@
     </div>
     <div class="center">
         <h1>포춘쿠키를 눌러주세요</h1>
-    <div class="container">
-        <img id="fortuneImage" src="포춘1.jpg" alt="운세 이미지" style="cursor: pointer;">
-        <div id="fortune"></div>
-        <button id="resetButton">한 개 더 줘!</button>
-    </div>
-    <div class="container">
+        <div class="container">
+            <img id="fortuneImage" src="포춘1.jpg" alt="운세 이미지" style="cursor: pointer;">
+            <div id="fortune"></div>
+            <button id="resetButton">한 개 더 줘!</button>
+        </div>
+        <div class="divider"></div>
+        <div class="container">
         <h1>심리테스트를 해보세요.</h1>
         <h8>좋아하는 동물을 선택하세요.</h8>
         <div class="card-container" id="A">
@@ -178,6 +195,13 @@
             <div class="card">
                 <div class="card-front">개구리</div>
                 <div class="card-back">당신은 강아지를 좋아하는 사람입니다</div>
+            </div>
+        </div>
+    <div class="divider"></div>
+        <div class="canvas-container">
+            <canvas id="canvas" width="500" height="500"></canvas>
+            <div class="button-container">
+                <button id="refreshButton">새로고침</button>
             </div>
         </div>
     </div>
@@ -236,7 +260,6 @@
         const content = document.getElementById('content');
         const closeButton = document.getElementById('closeButton');
 
-        // 버튼 클릭 이벤트 핸들러
         document.querySelectorAll('.nav-link').forEach((link) => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -245,12 +268,11 @@
                 floatingWindow.style.display = 'block';
             });
         });
-
-        // 닫기 버튼 클릭 이벤트 핸들러
         closeButton.addEventListener('click', () => {
             content.innerHTML = '';
             floatingWindow.style.display = 'none';
         });
+
         function toggleInterpretation(choice) {
             var cardElement = document.getElementById(choice).querySelector('.card');
             cardElement.classList.toggle('flipped');
@@ -259,6 +281,47 @@
         document.getElementById("B").onclick = function() { toggleInterpretation("B"); };
         document.getElementById("C").onclick = function() { toggleInterpretation("C"); };
         document.getElementById("D").onclick = function() { toggleInterpretation("D"); };
+
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        let painting = false;
+
+        function startPosition(e) {
+            painting = true;
+            draw(e);
+        }
+
+        function finishedPosition() {
+            painting = false;
+            ctx.beginPath();
+        }
+
+        function draw(e) {
+        if (!painting) return;
+
+        const rect = canvas.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        ctx.lineWidth = 5;
+        ctx.lineCap = 'round';
+        ctx.strokeStyle = 'black';
+
+        ctx.lineTo(x, y);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+    }
+        function clearCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+
+        canvas.addEventListener('mousedown', startPosition);
+        canvas.addEventListener('mouseup', finishedPosition);
+        canvas.addEventListener('mousemove', draw);
+        document.getElementById('refreshButton').addEventListener('click', clearCanvas);
+
     </script>
 </body>
 </html>
