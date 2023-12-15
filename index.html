@@ -103,11 +103,10 @@
         }
     </style>
 </head>
-
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">소라's</a>
+            <a class="navbar-brand" href="#">오늘</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
                     data-bs-target="#navbarNav" aria-controls="navbarNav" 
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -125,19 +124,16 @@
             </div>
         </div>
     </nav>
-    
     <div id="floatingWindow" class="bg-light p-4" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 999;">
         <button id="closeButton" class="btn btn-danger float-right">닫기</button>
         <div id="content"></div>
     </div>
-
     <div class="center">
         <h1>포춘쿠키를 눌러주세요</h1>
         <img id="fortuneImage" src="포춘1.jpg" alt="운세 이미지" style="cursor: pointer;">
         <div id="fortune"></div>
         <button id="resetButton" style="display:none;">다시하기</button>
     </div>
-
     <script>
         var fortunes = [
         "오늘 식사가 아주 맛있겠군요.",
@@ -158,18 +154,15 @@
         ];
         var images = ['포춘1.jpg', '포춘2.jpg'];
         var currentImage = 0;
-
         var fortuneText = document.getElementById('fortune');
         var resetButton = document.getElementById('resetButton');
         var fortuneImage = document.getElementById('fortuneImage');
         var isFortuneShown = false;
-
         fortuneImage.onclick = function() {
             if (!isFortuneShown) {
                 currentImage = (currentImage + 1) % images.length;
                 this.src = images[currentImage];
                 this.classList.add('no-hover'); // 확대/커서 변경 없는 클래스 추가
-
                 var randomIndex = Math.floor(Math.random() * fortunes.length);
                 fortuneText.innerText = fortunes[randomIndex];
                 fortuneText.classList.add('animate-text'); // 애니메이션 클래스 추가
@@ -178,7 +171,6 @@
                 isFortuneShown = true;
             }
         };
-
         resetButton.onclick = function() {
             currentImage = 0;
             fortuneImage.src = '포춘1.jpg';
@@ -188,7 +180,6 @@
             resetButton.style.display = 'none';
             isFortuneShown = false;
         };
-
         const floatingWindow = document.getElementById('floatingWindow');
         const content = document.getElementById('content');
         const closeButton = document.getElementById('closeButton');
