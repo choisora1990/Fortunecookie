@@ -108,9 +108,10 @@
             transform: rotateY(180deg);
         }
         .canvas-container {
+            display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
         }
         #canvas {
             border: 5px solid rgb(80, 84, 4);
@@ -123,7 +124,8 @@
         }
         .divider {
             border-bottom: 10px solid #383535;
-            margin: 20px 0; 
+            margin: 20px 0;
+            width: 100%;
         }    
         @media screen and (max-width: 768px) {
             .center {
