@@ -92,10 +92,10 @@
         }
         .card-front, .card-back {
             position: absolute;
-            backface-visibility: hidden;
             width: 100%;
             height: 100%;
             padding: 10px;
+            backface-visibility: hidden;
         }
         .card-front {
             font-size: 15px;
@@ -103,6 +103,7 @@
         .card-back {
             font-size: 12px;
             transform: rotateY(180deg);
+
         }
         .card.flipped {
             transform: rotateY(180deg);
@@ -217,30 +218,29 @@
         <button id="resetButton">한 개 더 줘!</button>
     </div>
     <div class="divider"></div>
-    <h1>심리테스트를 해보세요.</h1>
-    <h8>좋아하는 동물을 선택하세요.</h8>
+    <h1>운세카드를 뽑아보세요.</h1>
     <div class="card-container" id="A">
-        <div class="card">
-            <div class="card-front">강아지</div>
-            <div class="card-back">당신은 강아지를 좋아하는 사람입니다.</div>
+        <div class="card" style="background-color: red;">
+            <div class="card-front">나야나</div>
+            <div class="card-back">오늘은 애정운이 가득!</div>
         </div>
     </div>
     <div class="card-container" id="B">
-        <div class="card">
-            <div class="card-front">고양이</div>
-            <div class="card-back">당신은 강아지를 좋아하는 사람입니다.</div>
+        <div class="card" style="background-color: rgb(192, 169, 25);">
+            <div class="card-front">뽑아줘</div>
+            <div class="card-back">오늘은 재물운이 가득!</div>
         </div>
     </div>
     <div class="card-container" id="C">
-        <div class="card">
-            <div class="card-front">사자</div>
-            <div class="card-back">당신은 강아지를 좋아하는 사람입니다.</div>
+        <div class="card" style="background-color: rgb(98, 102, 158);">
+            <div class="card-front">여기야</div>
+            <div class="card-back">오늘은 학업운이 가득!</div>
         </div>
     </div>
     <div class="card-container" id="D">
-        <div class="card">
-            <div class="card-front">개구리</div>
-            <div class="card-back">당신은 강아지를 좋아하는 사람입니다.</div>
+        <div class="card" style="background-color: rgb(39, 200, 41);">
+            <div class="card-front">여길봐</div>
+            <div class="card-back">오늘은 건강운이 가득!</div>
         </div>
     </div>
     <div class="divider"></div>
