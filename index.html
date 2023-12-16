@@ -180,6 +180,44 @@
         <div id="content"></div>
     </div>
 
+        <div class="date-picker">
+        <h1>생년월일을 입력하세요.</h1>
+        <label for="year">연도:</label>
+        <select id="year">
+            <option value="" disabled selected>연도 선택</option>
+            <!-- 1900년부터 2023년까지 옵션 생성 -->
+            <script>
+                for (var i = 1900; i <= 2023; i++) {
+                    document.write('<option value="' + i + '">' + i + '</option>');
+                }
+            </script>
+        </select>
+
+        <label for="month">월:</label>
+        <select id="month">
+            <option value="" disabled selected>월 선택</option>
+            <!-- 1월부터 12월까지 옵션 생성 -->
+            <script>
+                for (var i = 1; i <= 12; i++) {
+                    document.write('<option value="' + i + '">' + i + '</option>');
+                }
+            </script>
+        </select>
+
+        <label for="day">일:</label>
+        <select id="day">
+            <option value="" disabled selected>일 선택</option>
+            <!-- 1일부터 31일까지 옵션 생성 -->
+            <script>
+                for (var i = 1; i <= 31; i++) {
+                    document.write('<option value="' + i + '">' + i + '</option>');
+                }
+            </script>
+        </select>
+
+        <button onclick="showDate()">입력</button>
+        <p id="result"></p>
+
     <div class="center">
          <h1>포춘쿠키를 눌러주세요</h1>
         <div class="fortune-container">
@@ -227,46 +265,7 @@
         </div>
     <div class="divider"></div>
     </div>
-
-
-    <div class="date-picker">
-        <h1>생년월일을 입력하세요.</h1>
-        <label for="year">연도:</label>
-        <select id="year">
-            <option value="" disabled selected>연도 선택</option>
-            <!-- 1900년부터 2023년까지 옵션 생성 -->
-            <script>
-                for (var i = 1900; i <= 2023; i++) {
-                    document.write('<option value="' + i + '">' + i + '</option>');
-                }
-            </script>
-        </select>
-
-        <label for="month">월:</label>
-        <select id="month">
-            <option value="" disabled selected>월 선택</option>
-            <!-- 1월부터 12월까지 옵션 생성 -->
-            <script>
-                for (var i = 1; i <= 12; i++) {
-                    document.write('<option value="' + i + '">' + i + '</option>');
-                }
-            </script>
-        </select>
-
-        <label for="day">일:</label>
-        <select id="day">
-            <option value="" disabled selected>일 선택</option>
-            <!-- 1일부터 31일까지 옵션 생성 -->
-            <script>
-                for (var i = 1; i <= 31; i++) {
-                    document.write('<option value="' + i + '">' + i + '</option>');
-                }
-            </script>
-        </select>
-
-        <button onclick="showDate()">입력</button>
-        <p id="result"></p>
-    </div>
+</div>
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9216665311141718"
     crossorigin="anonymous"></script>
