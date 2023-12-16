@@ -113,12 +113,22 @@
         <br><br>
         <button type="button" onclick="submitForm()">성격보기</button>
     </form>
-    <script>
-        function submitForm() {
-            // 여기에 JavaScript로 폼 데이터를 처리하는 코드 추가
-            alert("폼이 제출되었습니다!"); // 임시 메시지
+        <script>
+    function submitForm() {
+        var gender = document.getElementById('gender').value;
+        var year = document.getElementById('year').value;
+        var month = document.getElementById('month').value;
+        var day = document.getElementById('day').value;
+        var mbti = document.getElementById('mbti').value;
+
+        // 조건 확인
+        if (gender === 'male' && year === '2023' && month === '1' && day === '1' && mbti === 'INFP') {
+            window.location.href = 'game1.html'; // 조건에 맞으면 game1.html로 이동
+        } else {
+            alert('조건에 맞는 결과가 없습니다.'); // 조건에 맞지 않을 경우
         }
-    </script>
+    }
+</script>
     <!-- Footer-->
     <footer class="py-5 bg-dark">
         <div class="container"><p class="m-0 text-center text-white">Copyright &copy; soratoday.shop 2023</p></div>
