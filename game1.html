@@ -126,42 +126,7 @@
             </div>
         </nav>
 
-    <h1>생일을 입력하고, 쿠키를 눌러주세요.</h1>
-
-    <div class="date-picker">
-        <label for="year">연도:</label>
-        <select id="year">
-            <option value="" disabled selected>연도 선택</option>
-            <script>
-                for (var i = 2023; i >= 1900; i--) {
-                    document.write('<option value="' + i + '">' + i + '</option>');
-                }
-            </script>
-        </select>        
-
-        <label for="month">월:</label>
-        <select id="month">
-            <option value="" disabled selected>월 선택</option>
-            <script>
-                for (var i = 1; i <= 12; i++) {
-                    document.write('<option value="' + i + '">' + i + '</option>');
-                }
-            </script>
-        </select>
-
-        <label for="day">일:</label>
-        <select id="day">
-            <option value="" disabled selected>일 선택</option>
-            <script>
-                for (var i = 1; i <= 31; i++) {
-                    document.write('<option value="' + i + '">' + i + '</option>');
-                }
-            </script>
-        </select>
-
-        <button onclick="showDate()">입력</button>
-        <p id="result"></p>
-    </div>
+    <h1>쿠키를 눌러주세요.</h1>
 
     <div class="fortune-container">
         <img id="fortuneImage" src="포춘1.jpg" alt="운세 이미지" style="cursor: pointer;">
@@ -216,14 +181,6 @@
         resetButton.style.display;
         isFortuneShown = false;
     };
-    function toggleInterpretation(choice) {
-        var cardElement = document.getElementById(choice).querySelector('.card');
-        cardElement.classList.toggle('flipped');
-    }
-    document.getElementById("A").onclick = function() { toggleInterpretation("A"); };
-    document.getElementById("B").onclick = function() { toggleInterpretation("B"); };
-    document.getElementById("C").onclick = function() { toggleInterpretation("C"); };
-    document.getElementById("D").onclick = function() { toggleInterpretation("D"); };
 </script>
     <!-- Footer-->
     <footer class="py-5 bg-dark">
