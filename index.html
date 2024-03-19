@@ -121,23 +121,9 @@
             <button type="button" onclick="submitForm()">성격보기</button>
         </form>
         <script>
-            function submitForm() {
-                var gender = document.getElementById('gender').value;
-                var year = document.getElementById('year').value;
-                var month = document.getElementById('month').value;
-                var day = document.getElementById('day').value;
-                var mbti = document.getElementById('mbti').value;
-        
-                if (gender === 'male' && year === '1991' && month === '6' && day === '27' && mbti === 'ESTJ') {
-                    window.location.href = 'm920627estj.html'; 
-                } else if (gender === 'female' && year === '1990' && month === '7' && day === '3' && mbti === 'ENFP') {
-                    window.location.href = 'f900703enfp.html'; // 확장자 추가
-                } else if (gender === 'male' && year === '2023' && month === '1' && day === '1' && mbti === 'INFP') {
-                    window.location.href = 'm230101infp.html'; // 확장자 추가
-                } else {
-                    alert('준비 중입니다.'); // 모든 조건에 맞지 않을 경우
+                function submitForm() {
+                    window.location.href = 'm230101infp.html'; // 페이지 이동 변경
                 }
-            }
         </script>
     </div>
     <footer class="py-5 bg-dark" style="margin-top: 20px;">
